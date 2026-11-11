@@ -21,6 +21,36 @@ and mirrors your external display from it. A small background process holds the 
 alive and re-applies the mirror after unplug/replug, sleep/wake or any display reconfiguration.
 The built-in display is never touched.
 
+## Install with an AI agent
+
+Not comfortable with the terminal? Paste this prompt into Claude Code, Codex or Cursor on your Mac:
+
+```text
+Please install the open-source tool hidpi-mirror on this Mac for me, so my external
+1080p monitor shows bigger, easier-to-read text. Repo:
+https://github.com/talenguyen/hidpi-mirror
+
+Do it step by step and explain each step in plain, simple words:
+
+1. Check this Mac fits: Apple Silicon (M1/M2/M3/M4) and an external monitor running
+   at 1920x1080 (use `system_profiler SPDisplaysDataType`). If it does not fit,
+   stop and tell me why. Don't install anything.
+2. If the Xcode Command Line Tools are missing, run `xcode-select --install` and
+   tell me to click "Install" in the popup, then wait for me.
+3. Clone the repo into ~/Tools/hidpi-mirror. Read README.md and scripts/install.sh
+   first, then tell me in 2-3 sentences what the script changes on my Mac.
+4. Run ./scripts/install.sh. Don't use sudo.
+5. Verify: `system_profiler SPDisplaysDataType` should show my external monitor
+   with "UI Looks like: 1600 x 900". The built-in screen must stay unchanged.
+6. If `hidpi-mirror` is not found as a command, add ~/.local/bin to my PATH in
+   ~/.zshrc.
+7. Finally, tell me the 3 commands I need: `hidpi-mirror off` (back to normal),
+   `hidpi-mirror on` (turn it back on), and how to uninstall
+   (./scripts/uninstall.sh in ~/Tools/hidpi-mirror).
+
+If anything fails, stop, show me the error, and don't try risky fixes.
+```
+
 ## Install
 
 Needs the Xcode Command Line Tools (or Xcode). If they are missing, the script tells you to run
